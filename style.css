@@ -27,23 +27,35 @@ body {
 }
 
 .utm-form h1 {
-    font-size: 18px; /* Smaller font size for the title */
+    font-size: 18px;
     color: #333;
 }
 
 .utm-form input, .utm-form select {
-    width: 100%; /* Consistent width */
+    width: 100%;
     padding: 8px;
     margin-top: 10px;
     border-radius: 4px;
     border: 1px solid #ccc;
-    box-sizing: border-box; /* Includes padding and border in the width */
+    box-sizing: border-box;
+}
+
+.utm-form textarea, .utm-form p.comment {
+    width: 100%;
+    margin-top: 5px;  /* Spacing after inputs and selects */
+    margin-bottom: 15px; /* Space before the next element */
+    font-size: 12px;
+    color: #666;
+    background: none;
+    border: none;
+    outline: none;
+    resize: none; /* Disables resizing of the textarea */
 }
 
 .utm-form button {
     width: 100%;
     padding: 10px;
-    background-color: #007BFF; /* Bright blue background */
+    background-color: #007BFF;
     color: white;
     border: none;
     border-radius: 4px;
@@ -52,7 +64,7 @@ body {
 }
 
 .utm-form button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
 
 #generatedUrl {
