@@ -64,14 +64,17 @@
             <option value="various-assets">various-assets</option>
             <option value="video">video</option>
         </select>
+        <p class="comment">Comment on base URL: This is the base of your UTM URL.</p>
 
-        <!-- Campaign ID Dropdown -->
+        <!-- Campaign Name with ID Dropdown -->
         <input type="text" id="campaign" placeholder="Enter Campaign Name">
+        <p class="comment">Comment on base URL: This is the base of your UTM URL.</p>
         <select id="campaignId">
             <option value="">Select ID</option>
             <option value="{campaignId1}">{campaignid}</option>
             <!-- Additional campaign IDs -->
         </select>
+        <p class="comment">(Optional)</p>
 
         <!-- Term with Keyword Dropdown -->
         <select id="term">
@@ -79,6 +82,7 @@
             <option value="{keyword1}">{keyword}</option>
             <!-- Additional keywords -->
         </select>
+        <p class="comment">(Optional)</p>
 
         <!-- Content with Creative Dropdown -->
         <select id="content">
@@ -86,6 +90,7 @@
             <option value="{creative1}">{creative}</option>
             <!-- Additional creatives -->
         </select>
+        <p class="comment">(Optional)</p>
 
         <button onclick="generateUtm()">Generate URL</button>
         <div id="generatedUrl"></div>
