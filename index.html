@@ -14,27 +14,36 @@
         </div>
         <input type="text" id="baseUrl" placeholder="Enter the base URL">
         
+        <!-- Sources Dropdown -->
         <select id="source">
             <option value="">Select Source</option>
-            <option value="google">google</option>
-            <option value="facebook">facebook</option>
-            <option value="twitter">twitter</option>
-            <!-- Add more sources as needed -->
+            <option value="adroll-display">Adroll Display</option>
+            <option value="adroll-native">Adroll Native</option>
+            <option value="adroll-video">Adroll Video</option>
+            <!-- Include all sources as options here -->
+            <!-- Other source options omitted for brevity -->
+            <option value="youtube">YouTube</option>
         </select>
 
+        <!-- Mediums Dropdown -->
         <select id="medium">
             <option value="">Select Medium</option>
-            <option value="cpc">cpc</option>
-            <option value="banner">banner</option>
-            <option value="email">email</option>
-            <!-- Add more mediums as needed -->
+            <option value="banner">Banner</option>
+            <option value="video">Video</option>
+            <option value="native">Native</option>
+            <!-- Include all mediums as options here -->
+            <!-- Other medium options omitted for brevity -->
+            <option value="text-ad">Text Ad</option>
         </select>
 
+        <!-- Additional UTM fields -->
         <input type="text" id="campaign" placeholder="Enter Campaign Name">
-
         <input type="text" id="term" placeholder="Enter Keywords">
-
+        <input type="text" id="content" placeholder="Enter Creative">
+        <input type="text" id="utmId" placeholder="Enter Campaign ID">
+        
         <button onclick="generateUtm()">Generate URL</button>
+        <button onclick="copyToClipboard()">Copy to Clipboard</button>
         <div id="generatedUrl"></div>
     </div>
 
