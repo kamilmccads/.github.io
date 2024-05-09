@@ -43,7 +43,7 @@ body {
 .utm-form textarea, .utm-form p.comment {
     width: 100%;
     margin-top: 5px;  /* Spacing after inputs and selects */
-    margin-bottom: 10px; /* Space before the next element */
+    margin-bottom: 5px; /* Space before the next element */
     font-size: 8px;  /* Smaller font size for comments */
     color: #666;
     background: none;
