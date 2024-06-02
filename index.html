@@ -14,7 +14,6 @@
         </div>
         <input type="text" id="baseUrl" placeholder="Enter the base URL">
         
-        <!-- Updated Sources Dropdown -->
         <select id="source">
             <option value="">Select Source</option>
             <option value="adroll-display">adroll-display</option>
@@ -48,7 +47,6 @@
         </select>
         <p class="comment">For Direct Deals, use the following format: direct-deal-[website name]. For example: ?utm_source=direct-deal-bloomberg.</p>
 
-        <!-- Updated Mediums Dropdown -->
         <select id="medium">
             <option value="">Select Medium</option>
             <option value="{affiliate_ref}">{affiliate_ref}</option>
@@ -66,29 +64,23 @@
         </select>
         <p class="comment">For CTA and Text Links, use the following format: cta-[button name], text-link-[link name]. For example: &utm_medium=cta-open-an-account, &utm_medium=text-link-open-a-live-account.</p>
 
-        <!-- Campaign Name with ID Dropdown -->
         <input type="text" id="campaign" placeholder="Enter Campaign Name">
         <p class="comment">The campaign name needs to include the country, language, and license. In some specific cases, indicate if it is for prospecting or retargeting. For example: &utm_campaign=forex-2405-prospecting-uk-en-fca.</p>
         <select id="campaignId">
             <option value="">Select ID</option>
             <option value="{campaignId1}">{campaignid}</option>
-            <!-- Additional campaign IDs -->
         </select>
         <p class="comment">(Optional)</p>
 
-        <!-- Term with Keyword Dropdown -->
         <select id="term">
             <option value="">Select Term</option>
             <option value="{keyword1}">{keyword}</option>
-            <!-- Additional keywords -->
         </select>
         <p class="comment">(Optional)</p>
 
-        <!-- Content with Creative Dropdown -->
         <select id="content">
             <option value="">Select Content</option>
             <option value="{creative1}">{creative}</option>
-            <!-- Additional creatives -->
         </select>
         <p class="comment">(Optional)</p>
 
@@ -96,6 +88,31 @@
         <div id="generatedUrl"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function generateUtm() {
+            var baseUrl = document.getElementById('baseUrl').value;
+            var source = document.getElementById('source').value;
+            var medium = document.getElementById('medium').value;
+            var campaign = document.getElementById('campaign').value;
+            var campaignId = document.getElementById('campaignId').value;
+            var term = document.getElementById('term').value;
+            var content = document.getElementById('content').value;
+
+            var url = new URL(baseUrl);
+            if (source) url.searchParams.append('utm_source', source);
+            if (medium) url.searchParams.append('utm_medium', medium);
+            if (campaign) url.searchParams.append('utm_campaign', campaign);
+            if (campaignId) url.searchParams.append('utm_id', campaignId);
+            if (term) url.searchParams.append('utm_term', term);
+            if (content) url.searchParams.append('utm_content', content);
+
+            // Replace %7B with { and %7D with } in the URL
+            var finalUrl = url.href.replace(/%7B/g, '{').replace(/%7D/g, '}');
+
+            // Create a clickable link in the generatedUrl div
+            var displayUrl = document.getElementById('generatedUrl');
+            displayUrl.innerHTML = '<a href="' + finalUrl + '" target="_blank">' + finalUrl + '</a>';
+        }
+    </script>
 </body>
 </html>
