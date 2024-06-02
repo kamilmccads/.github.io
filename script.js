@@ -18,6 +18,11 @@ function generateUtm() {
     // Replace %7B with { and %7D with } in the URL
     var finalUrl = url.href.replace(/%7B/g, '{').replace(/%7D/g, '}');
 
+    // Handle specific placeholder replacements
+    finalUrl = finalUrl.replace(/{campaignId1}/g, '{campaignId}');
+    finalUrl = finalUrl.replace(/{keyword1}/g, '{keyword}');
+    finalUrl = finalUrl.replace(/{creative1}/g, '{creative}');
+
     // Create a clickable link in the generatedUrl div
     var displayUrl = document.getElementById('generatedUrl');
     displayUrl.innerHTML = '<a href="' + finalUrl + '" target="_blank">' + finalUrl + '</a>';
