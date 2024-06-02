@@ -15,7 +15,10 @@ function generateUtm() {
     if (term) url.searchParams.append('utm_term', term);
     if (content) url.searchParams.append('utm_content', content);
 
+    // Replace %7B with { and %7D with } in the URL
+    var finalUrl = url.href.replace(/%7B/g, '{').replace(/%7D/g, '}');
+
     // Create a clickable link in the generatedUrl div
     var displayUrl = document.getElementById('generatedUrl');
-    displayUrl.innerHTML = '<a href="' + url.href + '" target="_blank">' + url.href + '</a>';
+    displayUrl.innerHTML = '<a href="' + finalUrl + '" target="_blank">' + finalUrl + '</a>';
 }
