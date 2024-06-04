@@ -7,6 +7,11 @@ function generateUtm() {
     var term = document.getElementById('term').value;
     var content = document.getElementById('content').value;
 
+    // Replace placeholders with actual values or leave them as empty strings
+    campaignId = campaignId.replace("{campaignId1}", "");
+    term = term.replace("{keyword1}", "");
+    content = content.replace("{creative1}", "");
+
     var url = new URL(baseUrl);
     if (source) url.searchParams.append('utm_source', source);
     if (medium) url.searchParams.append('utm_medium', medium);
