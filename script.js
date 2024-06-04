@@ -11,17 +11,19 @@ function generateUtm() {
     if (source) url.searchParams.append('utm_source', source);
     if (medium) url.searchParams.append('utm_medium', medium);
     if (campaign) url.searchParams.append('utm_campaign', campaign);
-    if (campaignId && campaignId !== "{campaignId1}") url.searchParams.append('utm_id', campaignId);
-    if (term && term !== "{keyword1}") url.searchParams.append('utm_term', term);
-    if (content && content !== "{creative1}") url.searchParams.append('utm_content', content);
+    if (campaignId) url.searchParams.append('utm_id', campaignId);
+    if (term) url.searchParams.append('utm_term', term);
+    if (content) url.searchParams.append('utm_content', content);
 
-    // Decode the URL to replace %7B with { and %7D with }
-    var decodedUrl = decodeURIComponent(url.href);
+    // Replace %7B with { and %7D with } in the URL
+    var finalUrl = url.href.replace(/%7B/g, '{').replace(/%7D/g, '}');
 
-    // Replace specific encoded characters with the correct braces
-    decodedUrl = decodedUrl.replace(/%7B/g, '{').replace(/%7D/g, '}');
+    // Handle specific placeholder replacements
+    finalUrl = finalUrl.replace(/{campaignId1}/g, '{campaignId}');
+    finalUrl = finalUrl.replace(/{keyword1}/g, '{keyword}');
+    finalUrl = finalUrl.replace(/{creative1}/g, '{creative}');
 
     // Create a clickable link in the generatedUrl div
     var displayUrl = document.getElementById('generatedUrl');
-    displayUrl.innerHTML = '<a href="' + decodedUrl + '" target="_blank">' + decodedUrl + '</a>';
+    displayUrl.innerHTML = '<a href="' + finalUrl + '" target="_blank">' + finalUrl + '</a>';
 }
