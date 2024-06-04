@@ -15,13 +15,13 @@ function generateUtm() {
     if (term) url.searchParams.append('utm_term', term);
     if (content) url.searchParams.append('utm_content', content);
 
-    // Get the generated URL as a string
-    var urlString = url.toString();
+    // Decode the URL to replace %7B with { and %7D with }
+    var decodedUrl = decodeURIComponent(url.href);
 
     // Replace specific encoded characters with the correct braces
-    urlString = urlString.replace(/%7B/g, '{').replace(/%7D/g, '}');
+    decodedUrl = decodedUrl.replace(/%7B/g, '{').replace(/%7D/g, '}');
 
     // Create a clickable link in the generatedUrl div
     var displayUrl = document.getElementById('generatedUrl');
-    displayUrl.innerHTML = '<a href="' + urlString + '" target="_blank">' + urlString + '</a>';
+    displayUrl.innerHTML = '<a href="' + decodedUrl + '" target="_blank">' + decodedUrl + '</a>';
 }
