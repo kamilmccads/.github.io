@@ -14,6 +14,7 @@
         </div>
         <input type="text" id="baseUrl" placeholder="Enter the base URL">
         
+        <!-- Updated Sources Dropdown -->
         <select id="source">
             <option value="">Select Source</option>
             <option value="adroll-display">adroll-display</option>
@@ -26,8 +27,9 @@
             <option value="dv360-display">dv360-display</option>
             <option value="dv360-native">dv360-native</option>
             <option value="dv360-video">dv360-video</option>
-            <option value="facebook-ads">facebook-ads</option>
-            <option value="facebook-organic">facebook-organic</option>
+            <option value="facebook-display">facebook-display</option>
+            <option value="facebook-native">facebook-native</option>
+            <option value="facebook-video">facebook-video</option>
             <option value="google-app">google-app</option>
             <option value="google-discovery">google-discovery</option>
             <option value="google-performance-max-brand">google-performance-max-brand</option>
@@ -36,14 +38,17 @@
             <option value="google-search-category">google-search-category</option>
             <option value="google-video">google-video</option>
             <option value="ib-{affiliate_id}">ib-{affiliate_id}</option>
-            <option value="instagram-ads">instagram-ads</option>
-            <option value="instagram-organic">instagram-organic</option>
-            <option value="twitter-ads">twitter-ads</option>
-            <option value="twitter-organic">twitter-organic</option>
+            <option value="instagram-display">instagram-display</option>
+            <option value="instagram-native">instagram-native</option>
+            <option value="instagram-video">instagram-video</option>
+            <option value="twitter-display">twitter-display</option>
+            <option value="twitter-native">twitter-native</option>
+            <option value="twitter-video">twitter-video</option>
             <option value="youtube">youtube</option>
         </select>
-        <p class="comment">For Direct Deals, use the following format: direct-deal-[website name]. For example: direct-deal-bloomberg.</p>
+        <p class="comment">For Direct Deals, use the following format: direct-deal-[website name]. For example: ?utm_source=direct-deal-bloomberg.</p>
 
+        <!-- Updated Mediums Dropdown -->
         <select id="medium">
             <option value="">Select Medium</option>
             <option value="{affiliate_ref}">{affiliate_ref}</option>
@@ -59,32 +64,38 @@
             <option value="various-assets">various-assets</option>
             <option value="video">video</option>
         </select>
-        <p class="comment">For CTA and Text Links, use the following format: cta-[button name], text-link-[link name]. For example: cta-open-an-account, text-link-open-a-live-account.</p>
+        <p class="comment">For CTA and Text Links, use the following format: cta-[button name], text-link-[link name]. For example: &utm_medium=cta-open-an-account, &utm_medium=text-link-open-a-live-account.</p>
 
+        <!-- Campaign Name with ID Dropdown -->
         <input type="text" id="campaign" placeholder="Enter Campaign Name">
-        <p class="comment">The campaign name needs to include the country or region, language, and license. In some specific cases, indicate if it is for prospecting or retargeting. For example: forex-2405-prospecting-uk-en-fca.</p>
+        <p class="comment">The campaign name needs to include the country, language, and license. In some specific cases, indicate if it is for prospecting or retargeting. For example: &utm_campaign=forex-2405-prospecting-uk-en-fca.</p>
         <select id="campaignId">
             <option value="">Select ID</option>
             <option value="{campaignId1}">{campaignid}</option>
+            <!-- Additional campaign IDs -->
         </select>
         <p class="comment">(Optional)</p>
 
+        <!-- Term with Keyword Dropdown -->
         <select id="term">
             <option value="">Select Term</option>
             <option value="{keyword1}">{keyword}</option>
+            <!-- Additional keywords -->
         </select>
         <p class="comment">(Optional)</p>
 
+        <!-- Content with Creative Dropdown -->
         <select id="content">
             <option value="">Select Content</option>
             <option value="{creative1}">{creative}</option>
+            <!-- Additional creatives -->
         </select>
         <p class="comment">(Optional)</p>
 
-        <button onclick="gU()">Generate URL</button>
+        <button onclick="generateUtm()">Generate URL</button>
         <div id="generatedUrl"></div>
     </div>
 
-    <script src="script.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
