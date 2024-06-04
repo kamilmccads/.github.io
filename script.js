@@ -11,9 +11,9 @@ function generateUtm() {
     if (source) url.searchParams.append('utm_source', source);
     if (medium) url.searchParams.append('utm_medium', medium);
     if (campaign) url.searchParams.append('utm_campaign', campaign);
-    if (campaignid && campaignid !== "{campaignid}") url.searchParams.append('utm_id', campaignid);
-    if (term && term !== "{keyword}") url.searchParams.append('utm_term', term);
-    if (content && content !== "{creative}") url.searchParams.append('utm_content', content);
+    if (campaignId && campaignId !== "{campaignId1}") url.searchParams.append('utm_id', campaignId);
+    if (term && term !== "{keyword1}") url.searchParams.append('utm_term', term);
+    if (content && content !== "{creative1}") url.searchParams.append('utm_content', content);
 
     // Decode the URL to replace %7B with { and %7D with }
     var decodedUrl = decodeURIComponent(url.href);
