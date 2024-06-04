@@ -7,18 +7,13 @@ function generateUtm() {
     var term = document.getElementById('term').value;
     var content = document.getElementById('content').value;
 
-    // Replace placeholders with actual values or leave them as placeholders
-    campaignId = campaignId || "{campaignId}";
-    term = term || "{keyword}";
-    content = content || "{creative}";
-
     var url = new URL(baseUrl);
     if (source) url.searchParams.append('utm_source', source);
     if (medium) url.searchParams.append('utm_medium', medium);
     if (campaign) url.searchParams.append('utm_campaign', campaign);
-    if (campaignId !== "{campaignId}") url.searchParams.append('utm_id', campaignId);
-    if (term !== "{keyword}") url.searchParams.append('utm_term', term);
-    if (content !== "{creative}") url.searchParams.append('utm_content', content);
+    if (campaignId && campaignId !== "{campaignId1}") url.searchParams.append('utm_id', campaignId);
+    if (term && term !== "{keyword1}") url.searchParams.append('utm_term', term);
+    if (content && content !== "{creative1}") url.searchParams.append('utm_content', content);
 
     // Decode the URL to replace %7B with { and %7D with }
     var decodedUrl = decodeURIComponent(url.href);
