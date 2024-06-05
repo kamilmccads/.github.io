@@ -103,6 +103,10 @@
             var term = document.getElementById('term').value;
             var content = document.getElementById('content').value;
 
+            if (!baseUrl.startsWith('http://') && !baseUrl.startsWith('https://')) {
+                baseUrl = 'https://' + baseUrl;
+            }
+
             var url = new URL(baseUrl);
             if (source) url.searchParams.append('utm_source', source);
             if (medium) url.searchParams.append('utm_medium', medium);
